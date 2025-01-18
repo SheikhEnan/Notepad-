@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .notebook {
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            height: 80vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .note-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .note {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        .note textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            resize: none;
+            background-color: #f1f1f1;
+        }
+
+        .note button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .note button:hover {
+            background-color: #45a049;
+        }
+
+        .add-note {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .add-note button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-note button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="notebook">
+        <h1>My Notebook</h1>
+        <div class="note-container" id="notes">
+            <!-- Notes will be added here -->
+        </div>
+
+        <div class="add-note">
+            <button onclick="addNote()">Add New Note</button>
+        </div>
+    </div>
+
+    <script>
+        function addNote() {
+            const noteContainer = document.getElementById("notes");
+
+            // Create a new note element
+            const newNote = document.createElement("div");
+            newNote.classList.add("note");
+
+            // Create a textarea for the note content
+            const textArea = document.createElement("textarea");
+            newNote.appendChild(textArea);
+
+            // Create a button to save the note (optional functionality)
+            const saveButton = document.createElement("button");
+            saveButton.innerText = "Save Note";
+            saveButton.onclick = function() {
+                alert("Note saved!");
+            };
+            newNote.appendChild(saveButton);
+
+            // Add the new note to the note container
+            noteContainer.appendChild(newNote);
+        }
+    </script>
+</body>
+</html>
